@@ -6,6 +6,7 @@
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
       xmlns:f="http://xmlns.jcp.org/jsf/core">
 <f:view>
+    <h:outputText value="#{mySingleton.add} #{mySingleton.time}"/>
     <h:form>
         <h:commandButton action="#{manBean.add}" value="Добавить"/>
     </h:form>

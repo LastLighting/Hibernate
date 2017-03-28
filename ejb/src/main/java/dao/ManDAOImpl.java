@@ -1,8 +1,10 @@
 package dao;
 
+import entities.InsertEvent;
 import entities.Man;
 
 import javax.ejb.Stateless;
+import javax.enterprise.event.Observes;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -35,4 +37,6 @@ public class ManDAOImpl extends DAO implements ManDAO {
         }
         return list;
     }
+
+
 }
