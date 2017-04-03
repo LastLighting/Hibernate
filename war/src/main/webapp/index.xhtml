@@ -14,21 +14,28 @@
         <h:column>
             <f:facet name="header">Идентификатор</f:facet>
             <div align="center">
-                <h:outputText value="#{man.id}" />
+                <h:outputText value="#{man.id}"/>
             </div>
         </h:column>
 
         <h:column>
             <f:facet name="header">Имя</f:facet>
             <div align="center">
-                <h:outputText value="#{man.name}" />
+                <h:outputText value="#{man.name}"/>
             </div>
         </h:column>
 
         <h:column>
             <f:facet name="header">Возраст</f:facet>
             <div align="center">
-                <h:outputText value="#{man.old}" />
+                <h:outputText value="#{man.old}"/>
+            </div>
+        </h:column>
+        <h:column>
+            <div align="center">
+                <h:form>
+                    <h:commandButton value="Удалить" action="#{manContBean.delete(man.id)}"/>
+                </h:form>
             </div>
         </h:column>
     </h:dataTable>

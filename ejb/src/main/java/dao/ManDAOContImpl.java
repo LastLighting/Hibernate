@@ -1,13 +1,20 @@
 package dao;
 
+import beans.SimpleLogger;
 import entities.InsertEvent;
 import entities.Man;
 import javafx.scene.chart.PieChart;
 import javafx.scene.chart.XYChart;
 
+import javax.annotation.PostConstruct;
+import javax.annotation.PreDestroy;
+import javax.ejb.PostActivate;
+import javax.ejb.PrePassivate;
 import javax.ejb.Stateful;
 import javax.enterprise.event.Event;
 import javax.inject.Inject;
+import javax.interceptor.Interceptor;
+import javax.interceptor.Interceptors;
 import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
@@ -21,7 +28,7 @@ public class ManDAOContImpl extends DAO implements ManDAOCont {
     @Inject
     private Event<InsertEvent> insertEvent;
 
-
+    @Interceptors(SimpleLogger.class)
     public void addMan(Man man) {
         toConnection();
         try {
@@ -55,4 +62,20 @@ public class ManDAOContImpl extends DAO implements ManDAOCont {
             closeConnection();
         }
     }
+
+    @Interceptors(SimpleLogger.class)
+    @PostConstruct
+    void postConstruct(){}
+
+    @Interceptors(SimpleLogger.class)
+    @PreDestroy
+    void preDestroy(){}
+
+    @Interceptors(SimpleLogger.class)
+    @PrePassivate
+    void prePassivate(){}
+
+    @Interceptors(SimpleLogger.class)
+    @PostActivate
+    void postActivate(){}
 }

@@ -8,6 +8,8 @@ import entities.Man;
 import javax.ejb.EJB;
 import javax.ejb.Stateless;
 import javax.faces.bean.ManagedBean;
+import javax.interceptor.AroundInvoke;
+import javax.interceptor.Interceptors;
 import java.util.List;
 
 /**
@@ -19,9 +21,20 @@ public class ManBean {
     @EJB
     ManDAO manDAO;
 
+    private String event;
+
     public List<Man> getListMans() {
         return manDAO.selectAllMan();
     }
 
     public String add(){return "add";}
+
+    public String getEvent() {
+        return event;
+    }
+
+    public void setEvent(String event) {
+        this.event = event;
+    }
+
 }

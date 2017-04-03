@@ -35,6 +35,11 @@ public class ManContBean implements Serializable {
         return "confirm";
     }
 
+    public String delete(int id){
+        manDAOCont.deleteMan(id);
+        return "index";
+    }
+
     public String confirm() {
         manDAOCont.addMan(man);
         conversation.end();
