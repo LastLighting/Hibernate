@@ -1,6 +1,10 @@
 package dao;
 
+import entities.ConditionEntity;
 import entities.Man;
+import entities.ManEntity;
+import org.hibernate.Session;
+import org.hibernate.query.Query;
 
 import javax.ejb.Remote;
 import java.util.List;
@@ -10,7 +14,8 @@ import java.util.List;
  */
 @Remote
 public interface ManDAO {
-    List<Man> selectAllMan();
-//    void addSoul(LostSoul lostSoul);
-//    void deleteSoulById(int id);
+
+    public List<ManEntity> findAll();
+
+    public ConditionEntity findAddressById(int id);
 }

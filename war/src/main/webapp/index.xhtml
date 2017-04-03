@@ -10,7 +10,7 @@
     <h:form>
         <h:commandButton action="#{manBean.add}" value="Добавить"/>
     </h:form>
-    <h:dataTable value="#{manBean.listMans}" var="man">
+    <h:dataTable value="#{manContBean.show}" var="man">
         <h:column>
             <f:facet name="header">Идентификатор</f:facet>
             <div align="center">

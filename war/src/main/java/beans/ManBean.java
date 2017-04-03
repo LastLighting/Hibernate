@@ -23,9 +23,6 @@ public class ManBean {
 
     private String event;
 
-    public List<Man> getListMans() {
-        return manDAO.selectAllMan();
-    }
 
     public String add(){return "add";}
 

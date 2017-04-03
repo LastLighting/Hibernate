@@ -1,7 +1,11 @@
 package dao;
 
+import entities.ConditionEntity;
 import entities.InsertEvent;
 import entities.Man;
+import entities.ManEntity;
+import org.hibernate.Session;
+import org.hibernate.query.Query;
 
 import javax.ejb.Stateless;
 import javax.enterprise.event.Observes;
@@ -13,30 +17,24 @@ import java.util.List;
 
 @Stateless
 public class ManDAOImpl extends DAO implements ManDAO {
-    private final String selectAllMan = "select * from man";
 
+    private Session session;
 
-    public List<Man> selectAllMan() {
-        toConnection();
-        List<Man> list = new ArrayList<Man>();
-        try {
-            PreparedStatement preparedStatement = connection.prepareStatement(selectAllMan);
-            ResultSet resultSet = preparedStatement.executeQuery();
-            while (resultSet.next()) {
-                Man man = new Man();
-                man.setId(resultSet.getInt("id"));
-                man.setName(resultSet.getString("name"));
-                man.setOld(resultSet.getInt("old"));
-                list.add(man);
-            }
-        }
-        catch (SQLException sqlException) {
-        }
-        finally {
-            closeConnection();
-        }
-        return list;
+    public List<ManEntity> findAll() {
+        return session.createQuery("from ManEntity c").list();
     }
 
+    public ConditionEntity findAddressById(int id) {
+        Query query = session.createQuery("from ConditionEntity a where a.idMan = :id");
+        query.setParameter("id", id);
+        return (ConditionEntity) query.uniqueResult() ;
+    }
 
+    public Session getSession() {
+        return session;
+    }
+
+    public void setSession(Session session) {
+        this.session = session;
+    }
 }

@@ -1,7 +1,12 @@
 package beans;
 
+import dao.ManDAO;
 import dao.ManDAOCont;
+import dao.ManDAOImpl;
 import entities.Man;
+import entities.ManEntity;
+import org.hibernate.Session;
+import org.hibernate.Transaction;
 
 import javax.annotation.PostConstruct;
 import javax.ejb.EJB;
@@ -10,6 +15,7 @@ import javax.enterprise.context.ConversationScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
 import java.io.Serializable;
+import java.util.List;
 
 @ConversationScoped
 @Named
@@ -29,6 +35,11 @@ public class ManContBean implements Serializable {
             conversation.begin();
         }
         man = new Man();
+    }
+
+    public List<ManEntity> show(){
+        ManDAOImpl manDAO = new ManDAOImpl();
+        return manDAO.findAll();
     }
 
     public String confirmPage() {
