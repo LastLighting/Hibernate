@@ -6,12 +6,9 @@
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
       xmlns:f="http://xmlns.jcp.org/jsf/core">
 <f:view>
-    Имя<br/>
-    <h:outputText value="#{manContBean.man.name}"/><br/>
-    Возраст<br/>
-    <h:outputText value="#{manContBean.man.old}"/><br/>
     <h:form>
-        <h:commandButton action="#{manContBean.confirm}" value="Подтвердить"/>
+
+        <h:commandButton action="#{manBean.addHome}" value="Занести"/>
     </h:form>
 </f:view>
 </html>

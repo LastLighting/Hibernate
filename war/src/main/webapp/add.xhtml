@@ -8,10 +8,20 @@
 <f:view>
     <h:form>
         Имя<br/>
-        <h:inputText value="#{manContBean.man.name}"/><br/>
-        Возраст<br/>
-        <h:inputText value="#{manContBean.man.old}"/><br/>
-        <h:commandButton action="#{manContBean.confirmPage}" value="Добавить"/>
+        <h:inputText value="#{manBean.manEntity.name}"/><br/>
+        Дата рождения<br/>
+        <!--<h:inputText value="#{manBean.manEntity.dateOfBirth}">-->
+            <!--<f:convertDateTime pattern="yyyy-MM-dd"/>-->
+        <!--</h:inputText>-->
+        <br/>
+        Город<br/>
+        <h:inputText value="#{manBean.house.city}"/><br/>
+        Улица<br/>
+        <h:inputText value="#{manBean.house.street}"/><br/>
+        Дом<br/>
+        <h:inputText value="#{manBean.house.building}"/><br/>
+
+        <h:commandButton action="#{manBean.confirmPage}" value="Добавить"/>
     </h:form>
 </f:view>
 </html>

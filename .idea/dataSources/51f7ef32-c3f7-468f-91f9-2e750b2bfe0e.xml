@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataSource name="MySQL - testbd@localhost">
+  <database-model serializer="dbm" rdbms="MYSQL" format-version="2.6">
+    <schema id="1" name="testbd">
+      <visible>1</visible>
+    </schema>
+    <schema id="2" name="cerberus"/>
+    <schema id="3" name="information_schema"/>
+    <schema id="4" name="mysql"/>
+    <schema id="5" name="performance_schema"/>
+    <schema id="6" name="sys"/>
+    <table id="7" parent="1" name="house"/>
+    <table id="8" parent="1" name="man"/>
+    <column id="9" parent="7" name="id">
+      <mandatory>1</mandatory>
+      <data-type>int(10) unsigned|0</data-type>
+      <sequence-identity>1</sequence-identity>
+    </column>
+    <column id="10" parent="7" name="city">
+      <mandatory>1</mandatory>
+      <data-type>varchar(45)|0</data-type>
+      <default-expression>&apos;&apos;</default-expression>
+    </column>
+    <column id="11" parent="7" name="street">
+      <mandatory>1</mandatory>
+      <data-type>varchar(45)|0</data-type>
+      <default-expression>&apos;&apos;</default-expression>
+    </column>
+    <column id="12" parent="7" name="building">
+      <mandatory>1</mandatory>
+      <data-type>varchar(45)|0</data-type>
+      <default-expression>&apos;&apos;</default-expression>
+    </column>
+    <key id="13" parent="7" name="PRIMARY">
+      <columns>id</columns>
+      <primary>1</primary>
+    </key>
+    <column id="14" parent="8" name="id">
+      <mandatory>1</mandatory>
+      <data-type>int(10) unsigned|0</data-type>
+      <sequence-identity>1</sequence-identity>
+    </column>
+    <column id="15" parent="8" name="name">
+      <data-type>varchar(45)|0</data-type>
+    </column>
+    <column id="16" parent="8" name="date_of_birth">
+      <mandatory>1</mandatory>
+      <data-type>date|0</data-type>
+      <default-expression>&apos;0000-00-00&apos;</default-expression>
+    </column>
+    <column id="17" parent="8" name="id_house">
+      <mandatory>1</mandatory>
+      <data-type>int(10) unsigned|0</data-type>
+      <default-expression>&apos;0&apos;</default-expression>
+    </column>
+    <index id="18" parent="8" name="FK_man_1">
+      <columns>id_house</columns>
+      <desc-columns></desc-columns>
+    </index>
+    <key id="19" parent="8" name="PRIMARY">
+      <columns>id</columns>
+      <primary>1</primary>
+    </key>
+    <foreign-key id="20" parent="8" name="FK_man_1">
+      <columns>id_house</columns>
+      <ref-key>~.house.PRIMARY</ref-key>
+      <cascade-update-rule>update</cascade-update-rule>
+      <cascade-delete-rule>delete</cascade-delete-rule>
+    </foreign-key>
+  </database-model>
+</dataSource>

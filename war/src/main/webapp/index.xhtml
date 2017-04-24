@@ -10,7 +10,10 @@
     <h:form>
         <h:commandButton action="#{manBean.add}" value="Добавить"/>
     </h:form>
-    <h:dataTable value="#{manContBean.show}" var="man">
+    <h:form>
+        <h:commandButton action="#{manBean.goAddHome}" value="Добавить дом"/>
+    </h:form>
+    <h:dataTable value="#{manBean.manEntities}" var="man">
         <h:column>
             <f:facet name="header">Идентификатор</f:facet>
             <div align="center">
@@ -26,11 +29,33 @@
         </h:column>
 
         <h:column>
-            <f:facet name="header">Возраст</f:facet>
+            <f:facet name="header">Дата рождения</f:facet>
             <div align="center">
-                <h:outputText value="#{man.old}"/>
+                <h:outputText value="#{man.dateOfBirth}"/>
             </div>
         </h:column>
+
+        <h:column>
+            <f:facet name="header">Город</f:facet>
+            <div align="center">
+                <h:outputText value="#{man.house.city}"/>
+            </div>
+        </h:column>
+
+        <h:column>
+            <f:facet name="header">Улица</f:facet>
+            <div align="center">
+                <h:outputText value="#{man.house.street}"/>
+            </div>
+        </h:column>
+
+        <h:column>
+            <f:facet name="header">Дом</f:facet>
+            <div align="center">
+                <h:outputText value="#{man.house.building}"/>
+            </div>
+        </h:column>
+
         <h:column>
             <div align="center">
                 <h:form>

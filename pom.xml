@@ -9,10 +9,10 @@
     <packaging>pom</packaging>
     <version>1.0-SNAPSHOT</version>
     <modules>
-        <module>war</module>
-        <module>ejb</module>
-        <module>ear</module>
-    </modules>
+    <module>war</module>
+    <module>ejb</module>
+    <module>ear</module>
+</modules>
 
 
 </project>
